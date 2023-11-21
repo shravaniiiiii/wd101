@@ -1,18 +1,17 @@
-// Event listener for DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', () => {
-  // Get the reference to the user table body
+  
   const userTableBody = document.getElementById('userTableBody');
 
-  // Loop through all localStorage items
+  
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
 
-    // Check if the key starts with 'user_'
+    
     if (key.startsWith('user_')) {
-      // Parse the JSON-stored user data from localStorage
+      
       const userData = JSON.parse(localStorage.getItem(key));
 
-      // Add the user data to the table
+      
       addRowToTable(userTableBody, userData);
     }
   }
