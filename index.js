@@ -1,37 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  const userTableBody = document.getElementById('userTableBody');
-
-  
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-
-    
-    if (key.startsWith('user_')) {
-      
-      const userData = JSON.parse(localStorage.getItem(key));
-
-      
-      addRowToTable(userTableBody, userData);
-    }
-  }
-});
-
-// Event listener for form submission
-const form = document.getElementById('registrationForm');
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Prevent default form submission
-
-  // Get the user's date of birth from the form
-  const dob = new Date(form.dob.value);
-
-  // Calculate the user's age based on the current year
-  const currentYear = new Date().getFullYear();
-  const age = currentYear - dob.getFullYear();
-
-  // Validate the user's age to ensure it's between 18 and 55
-  if (!(age >= 18 && age <= 55)) {
-    // Event listener for DOMContentLoaded event
+// Event listener for DOMContentLoaded event
 document.addEventListener('DOMContentLoaded', () => {
   // Get the reference to the user table body
   const userTableBody = document.getElementById('userTableBody');
@@ -87,7 +54,6 @@ form.addEventListener('submit', (event) => {
   // Add the user data to the table
   addRowToTable(userTableBody, userData);
 });
-
 // Function to add a new user row to the table
 function addRowToTable(tableBody, userData) {
   // Create a new table row
@@ -98,7 +64,7 @@ function addRowToTable(tableBody, userData) {
 
   // Add cells for each user data property
   const nameCell = newRow.insertCell();
- nameCell.textContent = userData.name;
+  nameCell.textContent = userData.name;
   nameCell.className = cellStyle;
 
   const emailCell = newRow.insertCell();
@@ -117,3 +83,7 @@ function addRowToTable(tableBody, userData) {
   acceptedTermsCell.textContent = userData.acceptedTerms;
   acceptedTermsCell.className = cellStyle;
 }
+
+      
+
+  
